@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5kE-k1-V2w">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IH2-e1-9Gw">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Course Table View Controller-->
+        <!--ZappyCode Courses-->
         <scene sceneID="ioZ-AW-IcA">
             <objects>
                 <tableViewController id="5kE-k1-V2w" customClass="CourseTableViewController" customModule="ZappyCode" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,13 +16,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bWY-BZ-d4h">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourseCell" rowHeight="408" id="bWY-BZ-d4h" customClass="CourseTableViewCell" customModule="ZappyCode" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="408"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bWY-BZ-d4h" id="8AD-lf-Zfw">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="408"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaygroundsCourseImageFULL" translatesAutoresizingMaskIntoConstraints="NO" id="UgU-Gm-cra">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="221"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="UgU-Gm-cra" secondAttribute="height" multiplier="1500:844" id="TXJ-N3-Lvl"/>
+                                                <constraint firstAttribute="height" constant="220" id="VXP-Sv-wI9"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Create Apps on Your iPad - Swift Playgrounds for Beginners" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kz-zO-mkD">
+                                            <rect key="frame" x="20" y="229" width="353" height="42.333333333333314"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn Swift and SwiftUI to Create Amazing Apps That You Will Submit to the App Store. All on Your iPad!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBf-rL-Tx2">
+                                            <rect key="frame" x="20" y="279" width="353" height="118"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="7Kz-zO-mkD" firstAttribute="top" secondItem="UgU-Gm-cra" secondAttribute="bottom" constant="8" symbolic="YES" id="8oi-Gt-hlE"/>
+                                        <constraint firstItem="UgU-Gm-cra" firstAttribute="top" secondItem="8AD-lf-Zfw" secondAttribute="top" id="Cu4-J7-cMC"/>
+                                        <constraint firstItem="oBf-rL-Tx2" firstAttribute="top" secondItem="7Kz-zO-mkD" secondAttribute="bottom" constant="7.6666666666666856" id="JlN-Ch-Te9"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7Kz-zO-mkD" secondAttribute="trailing" id="LGB-zC-f2F"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="oBf-rL-Tx2" secondAttribute="trailing" id="R58-V5-hRm"/>
+                                        <constraint firstItem="oBf-rL-Tx2" firstAttribute="leading" secondItem="8AD-lf-Zfw" secondAttribute="leadingMargin" id="Upx-M6-flq"/>
+                                        <constraint firstAttribute="trailing" secondItem="UgU-Gm-cra" secondAttribute="trailing" id="XBx-fe-I58"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="oBf-rL-Tx2" secondAttribute="bottom" id="kX6-pi-DmI"/>
+                                        <constraint firstItem="UgU-Gm-cra" firstAttribute="leading" secondItem="8AD-lf-Zfw" secondAttribute="leading" id="kxe-5F-9GJ"/>
+                                        <constraint firstItem="7Kz-zO-mkD" firstAttribute="leading" secondItem="8AD-lf-Zfw" secondAttribute="leadingMargin" id="xhn-of-nRb"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="courseImageView" destination="UgU-Gm-cra" id="Krx-OL-mH0"/>
+                                    <outlet property="courseSubtitleLabel" destination="oBf-rL-Tx2" id="Fl7-hY-Mge"/>
+                                    <outlet property="courseTitleLabel" destination="7Kz-zO-mkD" id="ixG-Vz-UVI"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -30,13 +68,40 @@
                             <outlet property="delegate" destination="5kE-k1-V2w" id="yUm-af-LAF"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="ZappyCode Courses" id="onY-7A-2Ve">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.clockwise" catalog="system" id="sQQ-uJ-E75">
+                            <connections>
+                                <action selector="reloadButtonTapped:" destination="5kE-k1-V2w" id="kMj-wz-kgr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vra-ew-UUR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-57" y="7"/>
+            <point key="canvasLocation" x="869.46564885496184" y="6.3380281690140849"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lB4-3Y-Mxe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IH2-e1-9Gw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7ZM-jv-yno">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5kE-k1-V2w" kind="relationship" relationship="rootViewController" id="Vgs-on-8YD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FcU-aP-rAo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57.251908396946561" y="6.3380281690140849"/>
         </scene>
     </scenes>
     <resources>
+        <image name="PlaygroundsCourseImageFULL" width="1500" height="844"/>
+        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

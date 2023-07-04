@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CourseTableViewController: UITableViewController {
-
+    var courses: [Course] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         getCourses()
@@ -20,27 +21,46 @@ class CourseTableViewController: UITableViewController {
     }
 
     func getCourses() {
-
+        guard let url = URL(string: "https://zappycode.com/api/courses") else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        // URLSession: miniweb browser that actually uses internet to get data
+        URLSession.shared.dataTask(with: request) {
+            (data, response, err) in
+                if err != nil {
+                    print(err!.localizedDescription)
+                } else if data != nil {
+                    // print(String(data: data!, encoding: .utf8)!)
+                    // decode data etc
+                    if let coursesFromAPI = try? JSONDecoder().decode([Course].self, from: data!) {
+                        DispatchQueue.main.async { // at the next possible time we can run on main =>
+                            self.courses = coursesFromAPI
+                            self.tableView.reloadData()
+                        }
+                    }
+                }
+            }.resume()
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return courses.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let course = courses[indexPath.row]
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell") as? CourseTableViewCell{
+            cell.courseTitleLabel.text = course.title
+            cell.courseSubtitleLabel.text = course.subtitle
+            let url = URL(string: course.imgURLString)
+            cell.courseImageView.kf.setImage(with: url)
+            return cell
+        }
+        return UITableViewCell()
     }
 
     /*
@@ -78,6 +98,11 @@ class CourseTableViewController: UITableViewController {
     }
     */
 
+    // MARK: - Actions
+    @IBAction func reloadButtonTapped(_ sender: Any) {
+        getCourses()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -85,7 +110,9 @@ class CourseTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-    }
+
+     }
     */
+
 
 }
